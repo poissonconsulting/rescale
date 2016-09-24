@@ -37,6 +37,6 @@ data <- rescale(data, scale = "mpg")
 
 }
 \seealso{
-\code{\link[base]{scale}} and \code{\link[newdata]{new_data}}
+\code{\link[base]{scale}}
 }
 

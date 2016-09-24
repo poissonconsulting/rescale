@@ -18,7 +18,7 @@
 #'
 #' @return The centered and scaled data.frame.
 #' @export
-#' @seealso \code{\link[base]{scale}} and \code{\link[newdata]{new_data}}
+#' @seealso \code{\link[base]{scale}}
 #' @examples
 #' data <- datasets::mtcars
 #' data <- rescale(data, scale = "mpg")

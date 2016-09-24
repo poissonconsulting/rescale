@@ -7,8 +7,8 @@ test_that("rescale works", {
   expect_identical(rescale(mtcars, center = "mpg")[-1], mtcars[-1])
   expect_identical(rescale(mtcars, scale = "mpg")[-1], mtcars[-1])
   expect_equivalent(rescale(mtcars, center = names(mtcars)),
-                    as.data.frame(scale(mtcars, scale = FALSE)))
+                    as.data.frame(base::scale(mtcars, scale = FALSE)))
   expect_equivalent(rescale(mtcars, scale = names(mtcars)),
-                    as.data.frame(scale(mtcars)))
+                    as.data.frame(base::scale(mtcars)))
 })
 
