@@ -1,8 +1,16 @@
 Package: rescale
-Title: What the Package Does (one line, title case)
+Title: Scale Data Based on Other Data
 Version: 0.0.0.9000
+Date: 2016-09-24
 Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Description: Centers and scales columns in a data frame based on the columns in
+    a second data frame. A column is centered by subtracting the mean
+    and scaled (after centering) by dividing by the standard deviation.
+    The package was developed for making predictions based on models with
+    centred and scaled variables.  For the predictions to be valid the
+    new data frame must have its predictor variables centered and scaled
+    based on the original data.
+License: MIT + file LICENSE
 Depends:
     R (>= 3.3.1)
 Imports:
@@ -12,8 +20,9 @@ Imports:
     purrr
 Suggests:
     datasets,
+    newdata,
     testthat
-License: MIT + file LICENSE
+Remotes: poissonconsulting/newdata
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 5.0.1
