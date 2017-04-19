@@ -8,25 +8,26 @@ output: github_document
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "README-"
+  fig.path = "tools/README-"
 )
 ```
 
+![stability-unstable](https://img.shields.io/badge/stability-unstable-yellow.svg)
 [![Travis-CI Build Status](https://travis-ci.org/poissonconsulting/rescale.svg?branch=master)](https://travis-ci.org/poissonconsulting/rescale)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/rescale?branch=master&svg=true)](https://ci.appveyor.com/project/poissonconsulting/rescale)
 [![codecov](https://codecov.io/gh/poissonconsulting/rescale/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/rescale)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 # rescale
 
 ## Introduction
 
-`rescale` is an R package to centers and scales columns in a data frame based on
-the columns in a second data frame.
-A column is centered by subtracting the mean and scaled (after centering)
-by dividing by the standard deviation.
+`rescale` is an R package to scale columns in a data frame based on the columns in a second data frame.
+A column is centered by subtracting the mean and standardised by then dividing by the standard deviation.
+The package was developed for making predictions based on models with scaled variables. 
+For the predictions to be valid the new data frame must have its predictor variables scaled the same as the original data.
 
-`rescale()` was developed for making predictions based on models with centred and scaled variables. 
-For the predictions to be valid the new data frame must have its predictor variables centered and scaled based on the original data.
+The `rescale()` function simply takes a list of the columns to centre (subtract mean) and/or scale (divide by standard deviation). The more general `rescale2()` allows columns to be transformed and the value to subtract and/or divide by to be defined by functions.
 
 ## Demonstration
 
@@ -34,49 +35,35 @@ For the predictions to be valid the new data frame must have its predictor varia
 library(ggplot2)
 library(newdata)
 library(rescale)
+library(magrittr)
 
 mtcars <- datasets::mtcars
 
-model <- lm(mpg ~ wt + hp + poly(disp,2), 
-            data = rescale(mtcars, scale = c("wt", "hp", "disp")))
+data <- rescale(mtcars, scale = c("wt", "hp", "disp"))
 
-wt <- new_data(mtcars, c("wt"))
+model <- lm(mpg ~ wt + hp + poly(disp,2), data = data)
+
+## generate new data for plotting change in mpg with disp
+new_data <- newdata::new_data(mtcars, "disp")
 
 # without rescaling data
-wt2 <- cbind(wt, predict(model, newdata = wt, interval = "confidence"))
+prediction <- predict(model, newdata = new_data, interval = "confidence") %>% cbind(new_data)
 
-ggplot(data = wt2, aes(x = wt, y = fit)) + 
+gp <- ggplot(data = prediction, aes(x = disp, y = fit)) + 
   geom_point(data = mtcars, aes(y = mpg)) + 
   geom_line() +
   geom_line(aes(y = lwr), linetype = "dotted") +
   geom_line(aes(y = upr), linetype = "dotted") +
   ylab("mpg")
 
-# rescale data
-wt <- cbind(wt, predict(
-  model, newdata = rescale(wt, mtcars, scale = c("wt", "hp", "disp")),
-  interval = "confidence"))
+gp
 
-ggplot(data = wt, aes(x = wt, y = fit)) + 
-  geom_point(data = mtcars, aes(y = mpg)) + 
-  geom_line() +
-  geom_line(aes(y = lwr), linetype = "dotted") +
-  geom_line(aes(y = upr), linetype = "dotted") +
-  ylab("mpg")
+scaled_data <- rescale(new_data, datasets::mtcars, scale = c("wt", "hp", "disp"))
+                       
+prediction <- predict(model, newdata = scaled_data, interval = "confidence") %>% 
+  cbind(new_data)
 
-disp <- new_data(mtcars, c("disp"))
-
-# rescale data
-disp <- cbind(disp, predict(
-  model, newdata = rescale(disp, mtcars, scale = c("wt", "hp", "disp")),
-  interval = "confidence"))
-
-ggplot(data = disp, aes(x = disp, y = fit)) + 
-  geom_point(data = mtcars, aes(y = mpg)) + 
-  geom_line() +
-  geom_line(aes(y = lwr), linetype = "dotted") +
-  geom_line(aes(y = upr), linetype = "dotted") +
-  ylab("mpg")
+gp %+% prediction
 ```
 
 ## Installation
@@ -93,3 +80,4 @@ Please report any [issues](https://github.com/poissonconsulting/rescale/issues).
 
 [Pull requests](https://github.com/poissonconsulting/rescale/pulls) are always welcome.
 
+Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.

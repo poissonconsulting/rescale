@@ -19,24 +19,15 @@ rescale(data, data2 = data, center = character(0), scale = character(0))
 The centered and scaled data.frame.
 }
 \description{
-Centers and scales columns in the first data frame based on
+Centers and scales columns in a data frame based on
 the columns in a second data frame.
 A column is centered by subtracting the mean and scaled (after centering)
 by dividing by the standard deviation.
 Columns in \code{scale} do not also need to be listed in \code{center}.
 }
-\details{
-\code{rescale()} was developed for making predictions based on models
-with centred and scaled variables. For the predictions to be valid the
-new data frame must have its predictor variables centered and scaled
-based on the original data.
-}
 \examples{
-data <- datasets::mtcars
-data <- rescale(data, scale = "mpg")
-
+rescale(datasets::mtcars, scale = "mpg")
 }
 \seealso{
 \code{\link[base]{scale}}
 }
-
