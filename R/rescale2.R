@@ -20,11 +20,12 @@
 rescale2 <- function(data, data2 = data, transform = list(),
                      subtract = list(), divide_by = list()) {
   check_data1(data); check_data1(data2);
-  # need error
-  # need names list
+  check_uniquely_named_list(transform)
+  check_uniquely_named_list(subtract)
+  check_uniquely_named_list(divide_by)
+
   # need elements in data
   # need elements only once
-  # need names unique... not necessarily
   # need functions single vector and return scalar
   # except transform single vector and vector of same length
   data
