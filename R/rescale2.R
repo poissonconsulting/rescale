@@ -40,7 +40,8 @@ rescale2 <- function(data, data2 = data, transform = list(),
   check_cols(data2, subtract_cols)
   check_cols(data2, divide_by_cols)
 
- # data %<>% transform
+  data %<>% transform(transform)
+  data2 %<>% transform(transform)
 
   # need functions single vector and return scalar
   # except transform single vector and vector of same length
