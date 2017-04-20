@@ -3,3 +3,4 @@
 export(rescale)
 export(rescale2)
 import(datacheckr)
+importFrom(stats,sd)
