@@ -1,14 +1,15 @@
 Package: rescale
-Title: Scales Data Based on Other Data
-Version: 0.0.0.9000
-Date: 2017-04-18
+Title: Rescales Data Based on Other Data
+Version: 0.0.0.9001
+Date: 2017-04-20
 Authors@R: person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c("aut", "cre"))
-Description: Scales columns in a data frame based on the columns in
-    a second data frame. For example a column can be centered by subtracting its mean
-    and standardised by dividing by the standard deviation.
+Description: Rescales columns in a data frame based on the columns in
+    a second data frame. For example a column can be rescaled by subtracting the mean
+    and dividing by the standard deviation. The user can pass functions which calculate 
+    the value to subtract and/or the value to divide by.
     The package was developed for making predictions based on models with
-    centred and standardised variables.  For the predictions to be valid the
-    new data frame must have its predictor variables centered and standardised
+    rescaled variables.  For the predictions to be valid the
+    new data frame must have its predictor variables rescaled
     based on the original data.
 License: MIT + file LICENSE
 Depends:

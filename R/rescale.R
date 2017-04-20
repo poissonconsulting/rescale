@@ -26,8 +26,6 @@ rescale <- function(data, data2 = data, center = character(0), scale = character
   scale %<>% unique()
   center %<>% c(scale) %>% unique() # scaled variables must be centred first.
 
-  if (!length(center) && !length(scale)) return(data)
-
   data[center] %<>% center(data2[center])
   data[scale] %<>% scale(data2[scale])
   data

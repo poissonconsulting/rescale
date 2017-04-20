@@ -24,8 +24,23 @@ rescale2 <- function(data, data2 = data, transform = list(),
   check_uniquely_named_list(subtract)
   check_uniquely_named_list(divide_by)
 
-  # need elements in data
-  # need elements only once
+  transform_cols <- unlist(transform, recursive = FALSE)
+  subtract_cols <- unlist(subtract, recursive = FALSE)
+  divide_by_cols <- unlist(divide_by, recursive = FALSE)
+
+  if (anyDuplicated(transform_cols)) error("elements in transform must be unique")
+  if (anyDuplicated(subtract_cols)) error("elements in subtract must be unique")
+  if (anyDuplicated(divide_by_cols)) error("elements in divide_by must be unique")
+
+  check_cols(data, transform_cols)
+  check_cols(data, subtract_cols)
+  check_cols(data, divide_by_cols)
+
+  check_cols(data2, transform_cols)
+  check_cols(data2, subtract_cols)
+  check_cols(data2, divide_by_cols)
+
+
   # need functions single vector and return scalar
   # except transform single vector and vector of same length
   data
