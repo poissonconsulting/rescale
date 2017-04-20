@@ -8,18 +8,18 @@ rescale2(data, data2 = data, transform = list(), subtract = list(),
   divide_by = list())
 }
 \arguments{
-\item{data}{The data.frame to rescale.}
+\item{data}{The data frame to rescale.}
 
-\item{data2}{A data.frame to use for the rescaling.}
+\item{data2}{A data frame to use for the rescaling.}
 
 \item{transform}{A named list where the name(s) indicate the function(s) to use for the transformations and the elements indicate the columns to transform.}
 
-\item{subtract}{A named list where the name(s) indicate the function(s) to use when determining the values to subtract and the elements indicate the columns.}
+\item{subtract}{A named list where the name(s) indicate the function(s) to use when determining the value to subtract and the elements indicate the columns.}
 
-\item{divide_by}{A named list where the name(s) indicate the function(s) to use when determining the values to divide by and the elements indicate the columns.}
+\item{divide_by}{A named list where the name(s) indicate the function(s) to use when determining the value to divide by and the elements indicate the columns.}
 }
 \value{
-The transformed and rescaled data.frame.
+The data frame with transformed and rescaled columns.
 }
 \description{
 Rescales transformed columns in a data frame based on
@@ -33,5 +33,5 @@ rescale2(datasets::mtcars,
   divide_by = list(sd = c("mpg", "hp")))
 }
 \seealso{
-\code{\link[base]{scale}}
+\code{\link{rescale}}
 }

@@ -8,9 +8,13 @@ rescale
 Introduction
 ------------
 
-`rescale` is an R package to scale columns in a data frame based on the columns in a second data frame. A column is centered by subtracting the mean and standardised by then dividing by the standard deviation. The package was developed for making predictions based on models with scaled variables. For the predictions to be valid the new data frame must have its predictor variables scaled the same as the original data.
+`rescale` is an R package to rescale columns in a data frame based on the columns in a second data frame. For example a column can be rescaled by subtracting the mean and dividing by the standard deviation.
 
-The `rescale()` function simply takes a list of the columns to centre (subtract mean) and/or scale (divide by standard deviation). The more general `rescale2()` allows columns to be transformed and the value to subtract and/or divide by to be defined by functions.
+The package was developed for making predictions based on models with rescaled variables. For the predictions to be valid the new data frame must have its predictor variables rescaled based on the original data.
+
+The `rescale()` function simply takes a list of the columns to centre (subtract mean) and scale (centre and then divide by standard deviation).
+
+The more general `rescale2()` allows columns to be transformed and the values to subtract and/or divide by to be defined by functions.
 
 Demonstration
 -------------
@@ -47,6 +51,7 @@ gp
 
 ``` r
 
+## scale data
 scaled_data <- rescale(new_data, datasets::mtcars, scale = c("wt", "hp", "disp"))
                        
 prediction <- predict(model, newdata = scaled_data, interval = "confidence") %>% 

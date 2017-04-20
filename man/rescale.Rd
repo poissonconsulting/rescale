@@ -7,27 +7,27 @@
 rescale(data, data2 = data, center = character(0), scale = character(0))
 }
 \arguments{
-\item{data}{The data.frame to center and scale.}
+\item{data}{The data frame to center and scale.}
 
-\item{data2}{A data.frame to use for the centering and scaling.}
+\item{data2}{A data frame to use for the centering and scaling.}
 
 \item{center}{A character vector of the columns to center.}
 
 \item{scale}{A character vector of the columns to scale (after centering).}
 }
 \value{
-The centered and scaled data.frame.
+The data frame with rescaled columns.
 }
 \description{
 Centers and scales columns in a data frame based on
 the columns in a second data frame.
-A column is centered by subtracting the mean and scaled (after centering)
-by dividing by the standard deviation.
-Columns in \code{scale} do not also need to be listed in \code{center}.
+A column is centered by subtracting the mean
+and scaled by dividing by the standard deviation.
+Columns in \code{scale} are automatically added to \code{center} so they are standardised.
 }
 \examples{
 rescale(datasets::mtcars, scale = "mpg")
 }
 \seealso{
-\code{\link[base]{scale}}
+\code{\link[base]{scale}} and \code{\link{rescale2}}
 }
