@@ -43,6 +43,8 @@ rescale2 <- function(data, data2 = data, transform = list(),
   data %<>% transform(transform)
   data2 %<>% transform(transform)
 
+  data %<>% subtract(data2, subtract)
+
   # need functions single vector and return scalar
   # except transform single vector and vector of same length
   data

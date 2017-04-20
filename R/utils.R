@@ -26,3 +26,20 @@ transform <- function(data, transform) {
     data[] %<>% purrr::map_at(transform[[i]], transform_cols, names(transform[i]))
   data
 }
+
+subtract_cols <- function(x, y, fun_name) {
+  expr <- paste0("x %<>% magrittr::subtract( ", fun_name, "(y))") %>% parse(text = .)
+  eval(expr)
+  x
+}
+
+subtract <- function(data, data2, subtract) {
+  for (i in seq_along(subtract)) {
+    for (j in seq_along(subtract[[i]])) {
+      data[[subtract[[i]][j]]] %<>% subtract_cols(data2[[subtract[[i]][j]]],
+                                                  names(subtract[i]))
+    }
+  }
+  data
+}
+
