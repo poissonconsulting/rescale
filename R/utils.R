@@ -3,7 +3,7 @@ center_col <- function(x, y) x - mean(y, na.rm = TRUE)
 center <- function(data, data2) purrr::map2_df(data, data2, center_col)
 
 divide_by_cols <- function(x, y, fun_name) {
-  expr <- paste0("x %<>% magrittr::divide_by( ", fun_name, "(y))") %>%
+  expr <- glue("x %<>% magrittr::divide_by({fun_name}(y))") %>%
     parse(text = .)
   eval(expr)
   x
@@ -28,12 +28,12 @@ is_nlist <- function(x) {
   return(!any(vapply(x, is.list, TRUE)))
 }
 
-scale_col <- function(x, y) x / sd(y, na.rm = TRUE)
+scale_col <- function(x, y) x / stats::sd(y, na.rm = TRUE)
 
 scale <- function(data, data2) purrr::map2_df(data, data2, scale_col)
 
 subtract_cols <- function(x, y, fun_name) {
-  expr <- paste0("x %<>% magrittr::subtract( ", fun_name, "(y))") %>%
+  expr <- glue("x %<>% magrittr::subtract({fun_name}(y))") %>%
     parse(text = .)
   eval(expr)
   x
@@ -50,8 +50,8 @@ subtract <- function(data, data2, subtract) {
 }
 
 transform_cols <- function(x, fun_name) {
-  expr <- paste0("x %<>% ", fun_name, "()") %>% parse(text = .)
-  eval(expr)
+  expr <- glue("x %<>% {fun_name}()") %>% parse(text = .)
+    eval(expr)
   x
 }
 

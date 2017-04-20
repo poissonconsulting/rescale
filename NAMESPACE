@@ -3,6 +3,6 @@
 export(rescale)
 export(rescale2)
 import(datacheckr)
+importFrom(glue,glue)
 importFrom(magrittr,"%<>%")
 importFrom(magrittr,"%>%")
-importFrom(stats,sd)
