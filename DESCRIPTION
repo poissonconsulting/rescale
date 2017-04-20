@@ -16,7 +16,6 @@ Depends:
     R (>= 3.3.1)
 Imports:
     datacheckr,
-    magrittr,
     purrr
 Suggests:
     datasets,

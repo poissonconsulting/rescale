@@ -23,10 +23,11 @@ rescale <- function(data, data2 = data, center = character(0), scale = character
   check_cols(data, center); check_cols(data, scale);
   check_cols(data2, center); check_cols(data2, scale);
 
-  scale %<>% unique()
-  center %<>% c(scale) %>% unique() # scaled variables must be centred first.
+  scale <- unique(scale)
+  center <- c(center, scale)
+  center <- unique(center) # scaled variables must be centred first.
 
-  data[center] %<>% center(data2[center])
-  data[scale] %<>% scale(data2[scale])
+  data[center] <- center(data[center], data2[center])
+  data[scale] <- scale(data[scale], data2[scale])
   data
 }
