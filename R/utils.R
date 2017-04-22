@@ -72,6 +72,35 @@ transform <- function(data, transform) {
   data
 }
 
+get_rescaler_code <- function(x) {
+  pattern <- names(rescaler_codes)
+
+  pattern %<>%
+    paste0("\\", ., collapse = "|") %>%
+    paste0("(", ., ")")
+
+  n <- nchar(x)
+  x %<>% substr(n,n)
+  if (grepl(pattern, x, perl = TRUE)) return(x)
+  character(0)
+}
+
+get_rescaler_colname <- function(x) {
+  pattern <- names(rescaler_codes)
+
+  pattern %<>%
+    paste0("\\", ., collapse = "|") %>%
+    paste0("^(\\w+\\(){0,1}(\\w+)\\){0,1}(", ., "){0,1}$")
+
+  sub(pattern, "\\2", x, perl = TRUE)
+}
+
+get_rescaler_transform <- function(x) {
+  transform <- sub("^(\\w+)(\\(.*)", "\\1", x, perl = TRUE)
+  if (identical(transform, x)) return(character(0))
+  transform
+}
+
 is_valid_rescaler <- function(x) {
  pattern <- names(rescaler_codes)
 
