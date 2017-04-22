@@ -28,6 +28,8 @@ is_nlist <- function(x) {
   return(!any(vapply(x, is.list, TRUE)))
 }
 
+is.syntactic <- function(x) x == make.names(x)
+
 scale_col <- function(x, y) x / stats::sd(y, na.rm = TRUE)
 
 scale <- function(data, data2) purrr::map2_df(data, data2, scale_col)
@@ -70,3 +72,13 @@ transform <- function(data, transform) {
   data
 }
 
+is_valid_rescaler <- function(x) {
+ pattern <- names(rescaler_codes)
+
+ pattern %<>%
+    paste0("\\", ., collapse = "|") %>%
+    paste0("^(\\w+\\(){0,1}\\w+\\){0,1}(", ., "){0,1}$")
+
+  if (!grepl(pattern, x, perl = TRUE)) return(FALSE)
+  TRUE
+}
