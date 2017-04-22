@@ -32,6 +32,15 @@ scale_col <- function(x, y) x / stats::sd(y, na.rm = TRUE)
 
 scale <- function(data, data2) purrr::map2_df(data, data2, scale_col)
 
+standardise_col <- function(x, y) {
+  x %<>% center_col(y)
+  x %<>% scale_col(y)
+  x
+}
+
+subtract_min_col <- function(x, y)  x - min(y, na.rm = TRUE)
+subtract_min_plus1_col <- function(x, y)  x - min(y, na.rm = TRUE) + 1
+
 subtract_cols <- function(x, y, fun_name) {
   expr <- glue("x %<>% magrittr::subtract({fun_name}(y))") %>%
     parse(text = .)
@@ -60,3 +69,4 @@ transform <- function(data, transform) {
     data[] %<>% purrr::map_at(transform[[i]], transform_cols, names(transform[i]))
   data
 }
+
