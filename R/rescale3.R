@@ -18,8 +18,7 @@ rescale3 <- function(data, data2 = data, colnames = character(0)) {
   check_vector(colnames, "", min_length = 0)
 
   if (!length(colnames)) return(data)
-  if (!all(vapply(colnames, is_valid_rescaler, TRUE)))
-    error("colnames must be valid rescalers")
+  check_valid_rescalers(colnames)
 
   names <- vapply(colnames, get_rescaler_colname, "")
   transform <- lapply(colnames, get_rescaler_transform)
