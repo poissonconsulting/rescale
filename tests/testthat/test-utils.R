@@ -23,11 +23,13 @@ test_that("get_rescaler_code", {
   expect_identical(get_rescaler_code("*w"), character(0))
 })
 
-test_that("get_rescaler_colname", {
-  expect_identical(get_rescaler_colname("var"), "var")
-  expect_identical(get_rescaler_colname("mean+"), "mean")
-  expect_identical(get_rescaler_colname("log(mean)"), "mean")
-  expect_identical(get_rescaler_colname("log(mean)*"), "mean")
+test_that("get_rescaler_colnames", {
+  expect_identical(get_rescaler_colnames("var"), "var")
+  expect_identical(get_rescaler_colnames("mean+"), "mean")
+  expect_identical(get_rescaler_colnames("log(mean)"), "mean")
+  expect_identical(get_rescaler_colnames("log(mean)*"), "mean")
+  expect_identical(get_rescaler_colnames(c("log(mean)*", "sqrt(cc)>")), c("mean", "cc"))
+
 })
 
 test_that("get_rescaler_transform", {

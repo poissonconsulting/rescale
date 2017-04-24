@@ -20,7 +20,7 @@ rescale3 <- function(data, data2 = data, colnames = character(0)) {
   if (!length(colnames)) return(data)
   check_valid_rescalers(colnames)
 
-  names <- vapply(colnames, get_rescaler_colname, "")
+  names <- vapply(colnames, get_rescaler_colnames, "")
   transform <- lapply(colnames, get_rescaler_transform)
   code <- lapply(colnames, get_rescaler_code)
 
