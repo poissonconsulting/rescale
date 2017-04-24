@@ -13,7 +13,7 @@ divide_by <- function(data, data2, divide_by) {
   for (i in seq_along(divide_by)) {
     for (j in seq_along(divide_by[[i]])) {
       data[[divide_by[[i]][j]]] %<>% divide_by_cols(data2[[divide_by[[i]][j]]],
-                                                  names(divide_by[i]))
+                                                    names(divide_by[i]))
     }
   }
   data
@@ -62,7 +62,7 @@ subtract <- function(data, data2, subtract) {
 
 transform_cols <- function(x, fun_name) {
   expr <- glue("x %<>% {fun_name}()") %>% parse(text = .)
-    eval(expr)
+  eval(expr)
   x
 }
 
@@ -102,12 +102,46 @@ get_rescaler_transform <- function(x) {
 }
 
 is_valid_rescaler <- function(x) {
- pattern <- names(rescaler_codes)
+  pattern <- names(rescaler_codes)
 
- pattern %<>%
+  pattern %<>%
     paste0("\\", ., collapse = "|") %>%
     paste0("^(\\w+\\(){0,1}\\w+\\){0,1}(", ., "){0,1}$")
 
   if (!grepl(pattern, x, perl = TRUE)) return(FALSE)
   TRUE
 }
+
+switch_list <- function(x) {
+  y <- as.list(names(x))
+  names(y) <- x
+  y
+}
+
+aggregate_list <- function(x) {
+  if (!length(x)) return(x)
+  names <- unique(names(x))
+  y <- list()
+  for (name in names) {
+    y[[name]] <- setNames(unlist(x[names(x) == name]), NULL)
+  }
+  y
+}
+
+rescale_fun_cols <- function(x, y, fun_name) {
+  expr <- glue("x %<>% {fun_name}(y)") %>%
+    parse(text = .)
+  eval(expr)
+  x
+}
+
+rescale_fun <- function(data, data2, fun_list) {
+  for (i in seq_along(fun_list)) {
+    for (j in seq_along(fun_list[[i]])) {
+      data[[fun_list[[i]][j]]] %<>% rescale_fun_cols(data2[[fun_list[[i]][j]]],
+                                                     names(fun_list[i]))
+    }
+  }
+  data
+}
+

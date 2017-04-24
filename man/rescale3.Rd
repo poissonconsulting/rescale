@@ -4,14 +4,14 @@
 \alias{rescale3}
 \title{Rescale Transformed Data}
 \usage{
-rescale3(data, data2 = data, col_names = character(0))
+rescale3(data, data2 = data, colnames = character(0))
 }
 \arguments{
 \item{data}{The data frame to rescale.}
 
 \item{data2}{A data frame to use for the rescaling.}
 
-\item{col_names}{A character vector of column names to transform and/or rescale.}
+\item{colnames}{A character vector of column names to transform and/or rescale.}
 }
 \value{
 The data frame with transformed and rescaled columns.
@@ -22,7 +22,7 @@ the transformed columns in a second data frame.
 The columns are rescaled by subtracting values and then dividing by values.
 }
 \details{
-The column names can include a single function for the transform as well as the following suffices: + (subtract mean), - (subtract min), ^ (subtract min and add 1), / (divide by sd) and * (subtract mean and divide by sd).
+The column names can include a single function for the transform as well as the following suffices: + (subtract mean), - (subtract min), < (subtract min and add 1), / (divide by sd) and * (subtract mean and divide by sd).
 }
 \seealso{
 \code{\link{rescale}}

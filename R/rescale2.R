@@ -19,6 +19,7 @@
 #'   divide_by = list(sd = c("mpg", "hp")))
 rescale2 <- function(data, data2 = data, transform = list(),
                      subtract = list(), divide_by = list()) {
+
   check_data1(data); check_data1(data2);
   check_uniquely_named_list(transform)
   check_uniquely_named_list(subtract)
