@@ -13,11 +13,11 @@
 #' @export
 #' @seealso \code{\link{rescale}}
 #' @examples
-#' rescalef(datasets::mtcars,
+#' rescale_f(datasets::mtcars,
 #'   transform = list(log = "mpg"),
 #'   subtract = list(mean = c("mpg", "disp"), min = "gear"),
 #'   divide_by = list(sd = c("mpg", "hp")))
-rescalef <- function(data, data2 = data, transform = list(),
+rescale_f <- function(data, data2 = data, transform = list(),
                      subtract = list(), divide_by = list()) {
 
   check_data1(data); check_data1(data2);

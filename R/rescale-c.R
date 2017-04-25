@@ -12,8 +12,8 @@
 #' @return The data frame with transformed and rescaled columns.
 #' @export
 #' @seealso \code{\link{rescale}}
-# rescalec(datasets::mtcars, c("log(mpg)*", "disp+", "gear-", "hp/"))
-rescalec <- function(data, data2 = data, colnames = character(0)) {
+# rescale_c(datasets::mtcars, c("log(mpg)*", "disp+", "gear-", "hp/"))
+rescale_c <- function(data, data2 = data, colnames = character(0)) {
   check_data1(data); check_data1(data2);
   check_vector(colnames, "", min_length = 0)
 
