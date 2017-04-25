@@ -29,5 +29,5 @@ Columns in \code{scale} are automatically added to \code{center} so they are sta
 rescale(datasets::mtcars, scale = "mpg")
 }
 \seealso{
-\code{\link[base]{scale}} and \code{\link{rescale2}}
+\code{\link[base]{scale}}, \code{\link{rescalef}} and \code{\link{rescalec}}
 }

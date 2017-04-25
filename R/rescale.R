@@ -13,7 +13,7 @@
 #'
 #' @return The data frame with rescaled columns.
 #' @export
-#' @seealso \code{\link[base]{scale}} and \code{\link{rescale2}}
+#' @seealso \code{\link[base]{scale}}, \code{\link{rescalef}} and \code{\link{rescalec}}
 #' @examples
 #' rescale(datasets::mtcars, scale = "mpg")
 rescale <- function(data, data2 = data, center = character(0), scale = character(0)) {
