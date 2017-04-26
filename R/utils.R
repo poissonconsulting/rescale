@@ -91,7 +91,7 @@ get_rescaler_code <- function(x) {
 #' @return A character vector of the rescaler column names.
 #' @export
 #' @examples
-#' get_rescaler_colnames(c("log(mean)*", "sqrt(cc)>"))
+#' get_rescaler_colnames(c("log(mean)*", "sqrt(cc)="))
 get_rescaler_colnames <- function(x) {
   check_valid_rescalers(x)
   pattern <- names(rescaler_codes)

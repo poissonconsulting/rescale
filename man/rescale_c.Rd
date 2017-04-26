@@ -22,7 +22,7 @@ the transformed columns in a second data frame.
 The columns are rescaled by subtracting values and then dividing by values.
 }
 \details{
-The column names can include a single function for the transform as well as the following suffices: + (subtract mean), - (subtract min), < (subtract min and add 1), / (divide by sd) and * (subtract mean and divide by sd).
+The column names can include a single function for the transform as well as the following suffices: + (subtract mean), - (subtract min), =(subtract min and add 1), / (divide by sd) and * (subtract mean and divide by sd).
 }
 \seealso{
 \code{\link{rescale}}

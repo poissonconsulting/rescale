@@ -16,5 +16,5 @@ A character vector of the rescaler column names.
 Get Rescaler Colnames
 }
 \examples{
-get_rescaler_colnames(c("log(mean)*", "sqrt(cc)>"))
+get_rescaler_colnames(c("log(mean)*", "sqrt(cc)="))
 }

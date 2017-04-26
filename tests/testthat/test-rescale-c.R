@@ -20,5 +20,6 @@ test_that("rescale_c works", {
   expect_identical(rescale_c(mtcars, mtcars2, colnames = c("mpg+"))$mpg,
                    mtcars$mpg - mean(mtcars2$mpg))
   expect_identical(rescale_c(mtcars, colnames = "mpg*"), rescale(mtcars, scale = "mpg"))
+  expect_identical(min(rescale_c(mtcars, colnames = "mpg=")$mpg), 1)
   expect_identical(rescale_c(mtcars, colnames = c("mpg*", "cyl*", "drat+")), rescale(mtcars, center = c("drat", "mpg"), scale = c("mpg","cyl")))
 })
