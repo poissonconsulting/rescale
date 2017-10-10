@@ -14,7 +14,9 @@ The package was developed for making predictions based on models with rescaled v
 
 The `rescale()` function simply takes a list of the columns to centre (subtract mean) and scale (centre and then divide by standard deviation).
 
-The more general `rescale2()` allows columns to be transformed and the values to subtract and/or divide by to be defined by functions.
+The `rescale_c()` allows columns to be transformed and the values rescaled based on rescaler codes.
+
+The more general `rescale_f()` allows columns to be transformed and the values to subtract and/or divide by to be defined by functions.
 
 Demonstration
 -------------
