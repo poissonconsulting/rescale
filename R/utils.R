@@ -3,7 +3,7 @@ center_col <- function(x, y) {
   x - mean(y, na.rm = TRUE)
 }
 
-center <- function(data, data2) purrr::map2_df(data, data2, center_col)
+center <- function(data, data2) purrr::map2(data, data2, center_col)
 
 divide_by_cols <- function(x, y, fun_name) {
   expr <- glue("x %<>% magrittr::divide_by({fun_name}(y))") %>%
@@ -35,7 +35,7 @@ is.syntactic <- function(x) x == make.names(x)
 
 scale_col <- function(x, y) x / stats::sd(y, na.rm = TRUE)
 
-scale <- function(data, data2) purrr::map2_df(data, data2, scale_col)
+scale <- function(data, data2) purrr::map2(data, data2, scale_col)
 
 standardise_col <- function(x, y) {
   x %<>% center_col(y)
