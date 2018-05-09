@@ -1,31 +1,49 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-![stability-unstable](https://img.shields.io/badge/stability-unstable-yellow.svg) [![Travis-CI Build Status](https://travis-ci.org/poissonconsulting/rescale.svg?branch=master)](https://travis-ci.org/poissonconsulting/rescale) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/rescale?branch=master&svg=true)](https://ci.appveyor.com/project/poissonconsulting/rescale) [![codecov](https://codecov.io/gh/poissonconsulting/rescale/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/rescale) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-rescale
-=======
 
-Introduction
-------------
 
-`rescale` is an R package to rescale columns in a data frame based on the columns in a second data frame. For example a column can be rescaled by subtracting the mean and dividing by the standard deviation.
+![stability-unstable](https://img.shields.io/badge/stability-unstable-yellow.svg)
+[![Travis-CI Build Status](https://travis-ci.org/poissonconsulting/rescale.svg?branch=master)](https://travis-ci.org/poissonconsulting/rescale)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/rescale?branch=master&svg=true)](https://ci.appveyor.com/project/poissonconsulting/rescale)
+[![codecov](https://codecov.io/gh/poissonconsulting/rescale/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/rescale)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-The package was developed for making predictions based on models with rescaled variables. For the predictions to be valid the new data frame must have its predictor variables rescaled based on the original data.
+# rescale
 
-The `rescale()` function simply takes a list of the columns to centre (subtract mean) and scale (centre and then divide by standard deviation).
+## Introduction
+
+`rescale` is an R package to rescale columns in a data frame based on the columns in a second data frame.
+For example a column can be rescaled by subtracting the mean and dividing by the standard deviation. 
+
+The package was developed for making predictions based on models with rescaled variables.
+For the predictions to be valid the new data frame must have its predictor variables rescaled based on the original data.
+
+The `rescale()` function simply takes a list of the columns to centre (subtract mean) and scale (centre and then divide by standard deviation). 
 
 The `rescale_c()` allows columns to be transformed and the values rescaled based on rescaler codes.
 
 The more general `rescale_f()` allows columns to be transformed and the values to subtract and/or divide by to be defined by functions.
 
-Demonstration
--------------
+## Demonstration
 
-``` r
+
+```r
 library(ggplot2)
 library(newdata)
 library(rescale)
 library(magrittr)
+#> 
+#> Attaching package: 'magrittr'
+#> The following objects are masked from 'package:rescale':
+#> 
+#>     divide_by, subtract
+#> The following objects are masked from 'package:testthat':
+#> 
+#>     equals, is_less_than, not
 
 mtcars <- datasets::mtcars
 
@@ -49,9 +67,9 @@ gp <- ggplot(data = prediction, aes(x = disp, y = fit)) +
 gp
 ```
 
-![](tools/README-unnamed-chunk-2-1.png)
+![plot of chunk unnamed-chunk-2](tools/README-unnamed-chunk-2-1.png)
 
-``` r
+```r
 
 ## scale data
 scaled_data <- rescale(new_data, datasets::mtcars, scale = c("wt", "hp", "disp"))
@@ -62,18 +80,17 @@ prediction <- predict(model, newdata = scaled_data, interval = "confidence") %>%
 gp %+% prediction
 ```
 
-![](tools/README-unnamed-chunk-2-2.png)
+![plot of chunk unnamed-chunk-2](tools/README-unnamed-chunk-2-2.png)
 
-Installation
-------------
+## Installation
 
 To install the latest version from GitHub
+```
+# install.packages("devtools")
+devtools::install_github("poissonconsulting/rescale")
+```
 
-    # install.packages("devtools")
-    devtools::install_github("poissonconsulting/rescale")
-
-Contribution
-------------
+## Contribution
 
 Please report any [issues](https://github.com/poissonconsulting/rescale/issues).
 

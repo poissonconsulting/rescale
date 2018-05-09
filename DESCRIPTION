@@ -1,7 +1,7 @@
 Package: rescale
 Title: Rescales Data Based on Other Data
-Version: 0.0.0.9004
-Date: 2017-10-10
+Version: 0.0.0.9005
+Date: 2018-05-09
 Authors@R: person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c("aut", "cre"))
 Description: Rescales columns in a data frame based on the columns in
     a second data frame. For example a column can be rescaled by subtracting the mean
@@ -13,7 +13,7 @@ Description: Rescales columns in a data frame based on the columns in
     based on the original data.
 License: MIT + file LICENSE
 Depends:
-    R (>= 3.3.1)
+    R (>= 3.4.0)
 Imports:
     datacheckr,
     glue,
