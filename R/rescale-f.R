@@ -20,7 +20,7 @@
 rescale_f <- function(data, data2 = data, transform = list(),
                      subtract = list(), divide_by = list()) {
 
-  check_data1(data); check_data1(data2);
+  check_data(data); check_data(data2);
   check_uniquely_named_list(transform)
   check_uniquely_named_list(subtract)
   check_uniquely_named_list(divide_by)
@@ -33,13 +33,14 @@ rescale_f <- function(data, data2 = data, transform = list(),
   if (anyDuplicated(subtract_cols)) error("elements in subtract must be unique")
   if (anyDuplicated(divide_by_cols)) error("elements in divide_by must be unique")
 
-  check_cols(data, transform_cols)
-  check_cols(data, subtract_cols)
-  check_cols(data, divide_by_cols)
 
-  check_cols(data2, transform_cols)
-  check_cols(data2, subtract_cols)
-  check_cols(data2, divide_by_cols)
+  checkor(check_null(transform_cols), check_colnames(data, transform_cols))
+  checkor(check_null(subtract_cols), check_colnames(data, subtract_cols))
+  checkor(check_null(divide_by_cols), check_colnames(data, divide_by_cols))
+
+  checkor(check_null(transform_cols), check_colnames(data2, transform_cols))
+  checkor(check_null(subtract_cols), check_colnames(data2, subtract_cols))
+  checkor(check_null(divide_by_cols), check_colnames(data2, divide_by_cols))
 
   data %<>% transform(transform)
   data2 %<>% transform(transform)

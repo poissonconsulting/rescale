@@ -14,8 +14,8 @@
 #' @seealso \code{\link{rescale}}
 # rescale_c(datasets::mtcars, c("log(mpg)*", "disp+", "gear-", "hp/"))
 rescale_c <- function(data, data2 = data, colnames = character(0)) {
-  check_data1(data); check_data1(data2);
-  check_vector(colnames, "", min_length = 0)
+  check_data(data); check_data(data2);
+  check_vector(colnames, "")
 
   if (!length(colnames)) return(data)
   check_valid_rescalers(colnames)
