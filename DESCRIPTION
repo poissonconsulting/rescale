@@ -23,7 +23,8 @@ Imports:
 Suggests:
     datasets,
     newdata,
-    testthat
+    testthat,
+    covr
 Remotes: poissonconsulting/newdata
 Encoding: UTF-8
 LazyData: true
