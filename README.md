@@ -1,9 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
 <!-- badges: start -->
 
-[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R build
 status](https://github.com/poissonconsulting/rescale/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/rescale/actions)
 [![Codecov test
@@ -38,7 +38,6 @@ values to subtract and/or divide by to be defined by functions.
 
 ``` r
 library(ggplot2)
-#> Warning: package 'ggplot2' was built under R version 3.6.3
 library(newdata)
 library(rescale)
 library(magrittr)
@@ -68,7 +67,6 @@ gp
 ![](tools/README-unnamed-chunk-2-1.png)<!-- -->
 
 ``` r
-
 ## scale data
 scaled_data <- rescale(new_data, datasets::mtcars, scale = c("wt", "hp", "disp"))
                        
