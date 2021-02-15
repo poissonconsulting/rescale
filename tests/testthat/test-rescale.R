@@ -1,5 +1,3 @@
-context("rescale")
-
 test_that("rescale works", {
 
   mtcars <- datasets::mtcars

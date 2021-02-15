@@ -1,5 +1,3 @@
-context("rescale_f")
-
 test_that("rescale_f works", {
 
   mtcars <- datasets::mtcars

@@ -1,5 +1,3 @@
-context("utils")
-
 test_that("is_valid_rescaler", {
   expect_true(is_valid_rescaler("x"))
   expect_true(is_valid_rescaler("x*"))
