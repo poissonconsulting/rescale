@@ -66,10 +66,10 @@
 
 <div id="rescale" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#rescale" class="anchor"></a>rescale</h1></div>
+<a href="#rescale" class="anchor" aria-hidden="true"></a>rescale</h1></div>
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
-<a href="#introduction" class="anchor"></a>Introduction</h2>
+<a href="#introduction" class="anchor" aria-hidden="true"></a>Introduction</h2>
 <p><code>rescale</code> is an R package to rescale columns in a data frame based on the columns in a second data frame. For example a column can be rescaled by subtracting the mean and dividing by the standard deviation.</p>
 <p>The package was developed for making predictions based on models with rescaled variables. For the predictions to be valid the new data frame must have its predictor variables rescaled based on the original data.</p>
 <p>The <code><a href="reference/rescale.html">rescale()</a></code> function simply takes a list of the columns to centre (subtract mean) and scale (centre and then divide by standard deviation).</p>
@@ -78,24 +78,24 @@
 </div>
 <div id="demonstration" class="section level2">
 <h2 class="hasAnchor">
-<a href="#demonstration" class="anchor"></a>Demonstration</h2>
+<a href="#demonstration" class="anchor" aria-hidden="true"></a>Demonstration</h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">ggplot2</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/poissonconsulting/newdata">newdata</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">rescale</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org">magrittr</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">ggplot2</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/poissonconsulting/newdata" class="external-link">newdata</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">rescale</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org" class="external-link">magrittr</a></span><span class="op">)</span>
 
-<span class="va">mtcars</span> <span class="op">&lt;-</span> <span class="fu">datasets</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/r/datasets/mtcars.html">mtcars</a></span>
+<span class="va">mtcars</span> <span class="op">&lt;-</span> <span class="fu">datasets</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/r/datasets/mtcars.html" class="external-link">mtcars</a></span>
 
-<span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/rescale.html">rescale</a></span><span class="op">(</span><span class="va">mtcars</span>, scale <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"wt"</span>, <span class="st">"hp"</span>, <span class="st">"disp"</span><span class="op">)</span><span class="op">)</span>
+<span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/rescale.html">rescale</a></span><span class="op">(</span><span class="va">mtcars</span>, scale <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"wt"</span>, <span class="st">"hp"</span>, <span class="st">"disp"</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">hp</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/poly.html">poly</a></span><span class="op">(</span><span class="va">disp</span>,<span class="fl">2</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span>
+<span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">hp</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/poly.html" class="external-link">poly</a></span><span class="op">(</span><span class="va">disp</span>,<span class="fl">2</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span>
 
 <span class="co">## generate new data for plotting change in mpg with disp</span>
-<span class="va">new_data</span> <span class="op">&lt;-</span> <span class="fu">newdata</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/newdata/man/new_data.html">new_data</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="st">"disp"</span><span class="op">)</span>
+<span class="va">new_data</span> <span class="op">&lt;-</span> <span class="fu">newdata</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/newdata/man/new_data.html" class="external-link">new_data</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="st">"disp"</span><span class="op">)</span>
 
 <span class="co"># without rescaling data</span>
-<span class="va">prediction</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">model</span>, newdata <span class="op">=</span> <span class="va">new_data</span>, interval <span class="op">=</span> <span class="st">"confidence"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">new_data</span><span class="op">)</span>
+<span class="va">prediction</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">model</span>, newdata <span class="op">=</span> <span class="va">new_data</span>, interval <span class="op">=</span> <span class="st">"confidence"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">new_data</span><span class="op">)</span>
 
 <span class="va">gp</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">prediction</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">disp</span>, y <span class="op">=</span> <span class="va">fit</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mtcars</span>, <span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
@@ -108,31 +108,31 @@
 <p><img src="tools/README-unnamed-chunk-2-1.png"><!-- --></p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## scale data</span>
-<span class="va">scaled_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/rescale.html">rescale</a></span><span class="op">(</span><span class="va">new_data</span>, <span class="fu">datasets</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/r/datasets/mtcars.html">mtcars</a></span>, scale <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"wt"</span>, <span class="st">"hp"</span>, <span class="st">"disp"</span><span class="op">)</span><span class="op">)</span>
+<span class="va">scaled_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/rescale.html">rescale</a></span><span class="op">(</span><span class="va">new_data</span>, <span class="fu">datasets</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/r/datasets/mtcars.html" class="external-link">mtcars</a></span>, scale <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"wt"</span>, <span class="st">"hp"</span>, <span class="st">"disp"</span><span class="op">)</span><span class="op">)</span>
                        
-<span class="va">prediction</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">model</span>, newdata <span class="op">=</span> <span class="va">scaled_data</span>, interval <span class="op">=</span> <span class="st">"confidence"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">new_data</span><span class="op">)</span>
+<span class="va">prediction</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">model</span>, newdata <span class="op">=</span> <span class="va">scaled_data</span>, interval <span class="op">=</span> <span class="st">"confidence"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">new_data</span><span class="op">)</span>
 
 <span class="va">gp</span> <span class="op">%+%</span> <span class="va">prediction</span></code></pre></div>
 <p><img src="tools/README-unnamed-chunk-2-2.png"><!-- --></p>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<a href="#installation" class="anchor" aria-hidden="true"></a>Installation</h2>
 <p>To install the latest version from GitHub</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># install.packages("devtools")</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"poissonconsulting/rescale"</span>)</span></code></pre></div>
 </div>
 <div id="contribution" class="section level2">
 <h2 class="hasAnchor">
-<a href="#contribution" class="anchor"></a>Contribution</h2>
-<p>Please report any <a href="https://github.com/poissonconsulting/rescale/issues">issues</a>.</p>
-<p><a href="https://github.com/poissonconsulting/rescale/pulls">Pull requests</a> are always welcome.</p>
+<a href="#contribution" class="anchor" aria-hidden="true"></a>Contribution</h2>
+<p>Please report any <a href="https://github.com/poissonconsulting/rescale/issues" class="external-link">issues</a>.</p>
+<p><a href="https://github.com/poissonconsulting/rescale/pulls" class="external-link">Pull requests</a> are always welcome.</p>
 </div>
 <div id="code-of-conduct" class="section level2">
 <h2 class="hasAnchor">
-<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
-<p>Please note that the rescale project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<a href="#code-of-conduct" class="anchor" aria-hidden="true"></a>Code of Conduct</h2>
+<p>Please note that the rescale project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 </div>
 
@@ -140,7 +140,7 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
 <li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
@@ -148,7 +148,7 @@
 </div>
 
 <div class="community">
-<h2>Community</h2>
+<h2 data-toc-skip>Community</h2>
 <ul class="list-unstyled">
 <li><a href="CONTRIBUTING.html">Contributing guide</a></li>
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
@@ -156,19 +156,19 @@
 </div>
 
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Joe Thorley <br><small class="roles"> Author, maintainer </small>  </li>
 </ul>
 </div>
 
 <div class="dev-status">
-<h2>Dev status</h2>
+<h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
-<li><a href="https://github.com/poissonconsulting/rescale/actions"><img src="https://github.com/poissonconsulting/rescale/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
-<li><a href="https://codecov.io/gh/poissonconsulting/rescale?branch=master"><img src="https://codecov.io/gh/poissonconsulting/rescale/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a></li>
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
+<li><a href="https://github.com/poissonconsulting/rescale/actions" class="external-link"><img src="https://github.com/poissonconsulting/rescale/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
+<li><a href="https://codecov.io/gh/poissonconsulting/rescale?branch=master" class="external-link"><img src="https://codecov.io/gh/poissonconsulting/rescale/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://opensource.org/licenses/MIT" class="external-link"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a></li>
 </ul>
 </div>
 
@@ -177,11 +177,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Joe Thorley.</p>
+  <p></p>
+<p>Developed by Joe Thorley.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p>
 </div>
 
       </footer>
