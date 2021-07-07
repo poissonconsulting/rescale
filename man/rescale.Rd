@@ -4,8 +4,7 @@
 \alias{rescale}
 \title{Rescale Data}
 \usage{
-rescale(data, data2 = data, center = character(0),
-  scale = character(0))
+rescale(data, data2 = data, center = character(0), scale = character(0))
 }
 \arguments{
 \item{data}{The data frame to center and scale.}

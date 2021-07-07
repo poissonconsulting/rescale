@@ -4,8 +4,13 @@
 \alias{rescale_f}
 \title{Rescale Transformed Data}
 \usage{
-rescale_f(data, data2 = data, transform = list(), subtract = list(),
-  divide_by = list())
+rescale_f(
+  data,
+  data2 = data,
+  transform = list(),
+  subtract = list(),
+  divide_by = list()
+)
 }
 \arguments{
 \item{data}{The data frame to rescale.}
