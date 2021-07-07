@@ -17,11 +17,11 @@
 #' @examples
 #' rescale(datasets::mtcars, scale = "mpg")
 rescale <- function(data, data2 = data, center = character(0), scale = character(0)) {
-  check_data(data); check_data(data2);
-  check_vector(center, "")
-  check_vector(scale, "")
-  check_colnames(data, center); check_colnames(data, scale);
-  check_colnames(data2, center); check_colnames(data2, scale);
+  chk_data(data); chk_data(data2);
+  chk_vector(center, "")
+  chk_vector(scale, "")
+  check_names(data, center); check_names(data, scale);
+  check_names(data2, center); check_names(data2, scale);
 
   scale %<>% unique()
   center %<>% c(scale) %>% unique() # scaled variables must be centred first.
