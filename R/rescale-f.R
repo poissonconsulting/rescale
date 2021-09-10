@@ -33,14 +33,19 @@ rescale_f <- function(data, data2 = data, transform = list(),
   if (anyDuplicated(subtract_cols)) error("elements in subtract must be unique")
   if (anyDuplicated(divide_by_cols)) error("elements in divide_by must be unique")
 
+  chk_null_or_named <- function(data, x) {
+  if(!is.null(x)) {
+    check_names(data, x)
+   }
+  }
 
-  chkor(chk_null(transform_cols), check_names(data, transform_cols))
-  chkor(chk_null(subtract_cols), check_names(data, subtract_cols))
-  chkor(chk_null(divide_by_cols), check_names(data, divide_by_cols))
+  chk_null_or_named(data, transform_cols)
+  chk_null_or_named(data, subtract_cols)
+  chk_null_or_named(data, divide_by_cols)
 
-  chkor(chk_null(transform_cols), check_names(data2, transform_cols))
-  chkor(chk_null(subtract_cols), check_names(data2, subtract_cols))
-  chkor(chk_null(divide_by_cols), check_names(data2, divide_by_cols))
+  chk_null_or_named(data2, transform_cols)
+  chk_null_or_named(data2, subtract_cols)
+  chk_null_or_named(data2, divide_by_cols)
 
   data %<>% transform(transform)
   data2 %<>% transform(transform)
