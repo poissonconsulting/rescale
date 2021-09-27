@@ -20,7 +20,7 @@
 rescale_f <- function(data, data2 = data, transform = list(),
                      subtract = list(), divide_by = list()) {
 
-  chk_data(data); chk_data(data2);
+  chk::chk_data(data); chk::chk_data(data2);
   check_uniquely_named_list(transform)
   check_uniquely_named_list(subtract)
   check_uniquely_named_list(divide_by)
