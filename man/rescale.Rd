@@ -19,11 +19,10 @@ rescale(data, data2 = data, center = character(0), scale = character(0))
 The data frame with rescaled columns.
 }
 \description{
-Centers and scales columns in a data frame based on
-the columns in a second data frame.
-A column is centered by subtracting the mean
-and scaled by dividing by the standard deviation.
-Columns in \code{scale} are automatically added to \code{center} so they are standardised.
+Centers and scales columns in a data frame based on the columns in a second
+data frame. A column is centered by subtracting the mean and scaled by
+dividing by the standard deviation. Columns in \code{scale} are automatically
+added to \code{center} so they are standardised.
 }
 \examples{
 rescale(datasets::mtcars, scale = "mpg")

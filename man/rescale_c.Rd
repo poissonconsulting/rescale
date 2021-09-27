@@ -11,18 +11,21 @@ rescale_c(data, data2 = data, colnames = character(0))
 
 \item{data2}{A data frame to use for the rescaling.}
 
-\item{colnames}{A character vector of column names to transform and/or rescale.}
+\item{colnames}{A character vector of column names to transform and/or
+rescale.}
 }
 \value{
 The data frame with transformed and rescaled columns.
 }
 \description{
-Rescales transformed columns in a data frame based on
-the transformed columns in a second data frame.
-The columns are rescaled by subtracting values and then dividing by values.
+Rescales transformed columns in a data frame based on the transformed columns
+in a second data frame. The columns are rescaled by subtracting values and
+then dividing by values.
 }
 \details{
-The column names can include a single function for the transform as well as the following suffices: + (subtract mean), - (subtract min), =(subtract min and add 1), / (divide by sd) and * (subtract mean and divide by sd).
+The column names can include a single function for the transform as well as
+the following suffices: + (subtract mean), - (subtract min), =(subtract min
+and add 1), / (divide by sd) and * (subtract mean and divide by sd).
 }
 \seealso{
 \code{\link{rescale}}

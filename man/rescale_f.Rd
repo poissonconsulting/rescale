@@ -17,19 +17,25 @@ rescale_f(
 
 \item{data2}{A data frame to use for the rescaling.}
 
-\item{transform}{A named list where the name(s) indicate the function(s) to use for the transformations and the elements indicate the columns to transform.}
+\item{transform}{A named list where the name(s) indicate the function(s) to
+use for the transformations and the elements indicate the columns to
+transform.}
 
-\item{subtract}{A named list where the name(s) indicate the function(s) to use when determining the value to subtract and the elements indicate the columns.}
+\item{subtract}{A named list where the name(s) indicate the function(s) to
+use when determining the value to subtract and the elements indicate the
+columns.}
 
-\item{divide_by}{A named list where the name(s) indicate the function(s) to use when determining the value to divide by and the elements indicate the columns.}
+\item{divide_by}{A named list where the name(s) indicate the function(s) to
+use when determining the value to divide by and the elements indicate the
+columns.}
 }
 \value{
 The data frame with transformed and rescaled columns.
 }
 \description{
-Rescales transformed columns in a data frame based on
-the transformed columns in a second data frame.
-The columns are rescaled by subtracting values and then dividing by values.
+Rescales transformed columns in a data frame based on the transformed columns
+in a second data frame. The columns are rescaled by subtracting values and
+then dividing by values.
 }
 \examples{
 rescale_f(datasets::mtcars,
