@@ -15,7 +15,6 @@ License: MIT + file LICENSE
 Depends:
     R (>= 3.4.0)
 Imports:
-    checkr,
     chk,
     glue,
     magrittr,
