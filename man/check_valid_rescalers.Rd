@@ -12,7 +12,8 @@ check_valid_rescalers(x, x_name = substitute(x))
 \item{x_name}{A string of the object name.}
 }
 \value{
-An informative error if the check failed otherwise the original object.
+An informative error if the check failed otherwise the original
+  object.
 }
 \description{
 Check Valid Rescalers
