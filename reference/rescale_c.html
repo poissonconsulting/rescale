@@ -40,9 +40,9 @@
 
 
 <meta property="og:title" content="Rescale Transformed Data — rescale_c" />
-<meta property="og:description" content="Rescales transformed columns in a data frame based on
-the transformed columns in a second data frame.
-The columns are rescaled by subtracting values and then dividing by values." />
+<meta property="og:description" content="Rescales transformed columns in a data frame based on the transformed columns
+in a second data frame. The columns are rescaled by subtracting values and
+then dividing by values." />
 
 
 
@@ -82,7 +82,7 @@ The columns are rescaled by subtracting values and then dividing by values." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rescale</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9006</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9006</span>
       </span>
     </div>
 
@@ -113,9 +113,9 @@ The columns are rescaled by subtracting values and then dividing by values." />
     </div>
 
     <div class="ref-description">
-    <p>Rescales transformed columns in a data frame based on
-the transformed columns in a second data frame.
-The columns are rescaled by subtracting values and then dividing by values.</p>
+    <p>Rescales transformed columns in a data frame based on the transformed columns
+in a second data frame. The columns are rescaled by subtracting values and
+then dividing by values.</p>
     </div>
 
     <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>rescale_c</span><span class='op'>(</span><span class='va'>data</span>, data2 <span class='op'>=</span> <span class='va'>data</span>, colnames <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='fl'>0</span><span class='op'>)</span><span class='op'>)</span></code></pre></div>
@@ -133,7 +133,8 @@ The columns are rescaled by subtracting values and then dividing by values.</p>
     </tr>
     <tr>
       <th>colnames</th>
-      <td><p>A character vector of column names to transform and/or rescale.</p></td>
+      <td><p>A character vector of column names to transform and/or
+rescale.</p></td>
     </tr>
     </table>
 
@@ -142,7 +143,9 @@ The columns are rescaled by subtracting values and then dividing by values.</p>
     <p>The data frame with transformed and rescaled columns.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The column names can include a single function for the transform as well as the following suffices: + (subtract mean), - (subtract min), =(subtract min and add 1), / (divide by sd) and * (subtract mean and divide by sd).</p>
+    <p>The column names can include a single function for the transform as well as
+the following suffices: + (subtract mean), - (subtract min), =(subtract min
+and add 1), / (divide by sd) and * (subtract mean and divide by sd).</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='rescale.html'>rescale</a></code></p></div>
