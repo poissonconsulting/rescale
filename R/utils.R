@@ -7,7 +7,7 @@ center <- function(data, data2) purrr::map2(data, data2, center_col)
 
 divide_by_cols <- function(x, y, fun_name) {
   expr <- glue("x %<>% magrittr::divide_by({fun_name}(y))") %>%
-    parse(text = .)
+    str2lang(.)
   eval(expr)
   x
 }
@@ -48,7 +48,7 @@ subtract_min_plus1_col <- function(x, y)  x - min(y, na.rm = TRUE) + 1
 
 subtract_cols <- function(x, y, fun_name) {
   expr <- glue("x %<>% magrittr::subtract({fun_name}(y))") %>%
-    parse(text = .)
+    str2lang(.)
   eval(expr)
   x
 }
@@ -64,7 +64,7 @@ subtract <- function(data, data2, subtract) {
 }
 
 transform_cols <- function(x, fun_name) {
-  expr <- glue("x %<>% {fun_name}()") %>% parse(text = .)
+  expr <- glue("x %<>% {fun_name}()") %>% str2lang(.)
   eval(expr)
   x
 }
@@ -141,7 +141,7 @@ aggregate_list <- function(x) {
 
 rescale_fun_cols <- function(x, y, fun_name) {
   expr <- glue("x %<>% {fun_name}(y)") %>%
-    parse(text = .)
+    str2lang(.)
   eval(expr)
   x
 }
