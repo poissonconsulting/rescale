@@ -2,36 +2,39 @@ Package: rescale
 Title: Rescales Data Based on Other Data
 Version: 0.0.0.9006
 Date: 2018-10-05
-Authors@R: person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c("aut", "cre"))
-Description: Rescales columns in a data frame based on the columns in
-    a second data frame. For example a column can be rescaled by subtracting the mean
-    and dividing by the standard deviation. The user can pass the names of functions which calculate 
-    the value to subtract and/or the value to divide by.
-    The package was developed for making predictions based on models with
-    rescaled variables.  For the predictions to be valid the
-    new data frame must have its predictor variables rescaled
+Authors@R: 
+    person("Joe", "Thorley", , "joe@poissonconsulting.ca", role = c("aut", "cre"))
+Description: Rescales columns in a data frame based on the columns in a
+    second data frame. For example a column can be rescaled by subtracting
+    the mean and dividing by the standard deviation. The user can pass the
+    names of functions which calculate the value to subtract and/or the
+    value to divide by.  The package was developed for making predictions
+    based on models with rescaled variables.  For the predictions to be
+    valid the new data frame must have its predictor variables rescaled
     based on the original data.
 License: MIT + file LICENSE
+URL: https://github.com/poissonconsulting/rescale,
+    https://poissonconsulting.github.io/rescale/
+BugReports: https://github.com/poissonconsulting/rescale/issues
 Depends:
     R (>= 4.0)
 Imports:
     chk,
     glue,
-    magrittr,
-    stats,
-    purrr,
     lifecycle,
-    rlang
+    magrittr,
+    purrr,
+    rlang,
+    stats
 Suggests:
+    covr,
     datasets,
     newdata,
-    testthat (>= 3.0.0),
-    covr
-Remotes: poissonconsulting/newdata
+    testthat (>= 3.0.0)
+Remotes: 
+    poissonconsulting/newdata
+Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.3.2
 Roxygen: list(markdown = TRUE)
-URL: https://github.com/poissonconsulting/rescale, https://poissonconsulting.github.io/rescale/
-BugReports: https://github.com/poissonconsulting/rescale/issues
-Config/testthat/edition: 3
+RoxygenNote: 7.3.2
