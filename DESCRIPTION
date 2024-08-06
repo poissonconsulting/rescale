@@ -13,7 +13,7 @@ Description: Rescales columns in a data frame based on the columns in
     based on the original data.
 License: MIT + file LICENSE
 Depends:
-    R (>= 3.4.0)
+    R (>= 4.0)
 Imports:
     chk,
     glue,
