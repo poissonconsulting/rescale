@@ -82,10 +82,26 @@ gp %+% prediction
 
 ## Installation
 
-To install the latest version from GitHub
+To install the latest release version from CRAN.
 
-    # install.packages("devtools")
-    devtools::install_github("poissonconsulting/rescale")
+``` r
+install.packages("rescale")
+```
+
+To install the latest development version from
+[r-universe](https://poissonconsulting.r-universe.dev/rescale).
+
+``` r
+install.packages("rescale", repos = c("https://poissonconsulting.r-universe.dev", "https://cloud.r-project.org"))
+```
+
+To install the latest development version from
+[GitHub](https://github.com/poissonconsulting/rescale)
+
+``` r
+# install.packages("pak", repos = sprintf("https://r-lib.github.io/p/pak/stable/%s/%s/%s", .Platform$pkgType, R.Version()$os, R.Version()$arch))
+pak::pak("poissonconsulting/rescale")
+```
 
 ## Contribution
 
