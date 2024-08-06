@@ -6,7 +6,6 @@
 #' @import rlang
 #' @importFrom glue glue
 #' @importFrom lifecycle deprecated
-#' @importFrom magrittr %<>% %>%
 #' @importFrom stats setNames
 ## usethis namespace: end
 NULL

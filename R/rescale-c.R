@@ -41,26 +41,26 @@ rescale_c <- function(data,
   transform <- transform[vapply(transform, function(x) length(x) > 0, TRUE)]
   code <- code[vapply(code, function(x) length(x) > 0, TRUE)]
 
-  transform %<>%
-    switch_list() %>%
+  transform <- transform |>
+    switch_list() |>
     aggregate_list()
 
-  code %<>%
-    switch_list() %>%
+  code <- code |>
+    switch_list() |>
     aggregate_list()
 
-  data %<>% transform(transform)
+  data <- data |> transform(transform)
 
   if (!length(code)) {
     return(data)
   }
 
-  data2 %<>% transform(transform)
+  data2 <- data2 |> transform(transform)
 
   names(code) <- rescaler_codes[names(code)]
 
   for (i in seq_along(code)) {
-    data[] %<>% rescale_fun(data2, code[i])
+    data[] <- rescale_fun(data[], data2, code[i])
   }
   data
 }

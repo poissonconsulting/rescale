@@ -57,12 +57,12 @@ rescale_f <- function(data,
   chk_null_or_named(data2, subtract_cols)
   chk_null_or_named(data2, divide_by_cols)
 
-  data %<>% transform(transform)
-  data2 %<>% transform(transform)
+  data <- data |> transform(transform)
+  data2 <- data2 |> transform(transform)
 
-  data %<>% subtract(data2, subtract)
-  data2 %<>% subtract(data2, subtract)
+  data <- data |> subtract(data2, subtract)
+  data2 <- data2 |> subtract(data2, subtract)
 
-  data %<>% divide_by(data2, divide_by)
+  data <- data |> divide_by(data2, divide_by)
   data
 }

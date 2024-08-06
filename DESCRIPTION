@@ -23,12 +23,11 @@ URL: https://github.com/poissonconsulting/rescale,
     https://poissonconsulting.github.io/rescale/
 BugReports: https://github.com/poissonconsulting/rescale/issues
 Depends:
-    R (>= 4.0)
+    R (>= 4.1)
 Imports:
     chk,
     glue,
     lifecycle,
-    magrittr,
     purrr,
     rlang,
     stats

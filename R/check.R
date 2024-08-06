@@ -6,14 +6,14 @@
 #'   object.
 #' @export
 check_valid_rescalers <- function(x, x_name = substitute(x)) {
-  if (is.name(x)) x_name %<>% deparse()
+  if (is.name(x)) x_name <- deparse(x_name)
   valid <- vapply(x, is_valid_rescaler, TRUE)
   if (any(!valid)) error(x_name, " includes invalid rescalers")
   return(x)
 }
 
 check_uniquely_named_list <- function(x, x_name = substitute(x)) {
-  if (is.name(x)) x_name %<>% deparse()
+  if (is.name(x)) x_name <- deparse(x_name)
 
   if (!is_nlist(x)) {
     error(x_name, " must be a named list")
