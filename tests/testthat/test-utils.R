@@ -27,7 +27,6 @@ test_that("get_rescaler_colnames", {
   expect_identical(get_rescaler_colnames("log(mean)"), "mean")
   expect_identical(get_rescaler_colnames("log(mean)*"), "mean")
   expect_identical(get_rescaler_colnames(c("log(mean)*", "sqrt(cc)=")), c("mean", "cc"))
-
 })
 
 test_that("get_rescaler_transform", {

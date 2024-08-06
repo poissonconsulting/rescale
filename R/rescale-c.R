@@ -24,7 +24,9 @@ rescale_c <- function(data,
   chk::chk_vector(colnames)
   chk::check_values(colnames, "")
 
-  if (!length(colnames)) return(data)
+  if (!length(colnames)) {
+    return(data)
+  }
   check_valid_rescalers(colnames)
 
   names <- vapply(colnames, get_rescaler_colnames, "")
@@ -49,7 +51,9 @@ rescale_c <- function(data,
 
   data %<>% transform(transform)
 
-  if (!length(code)) return(data)
+  if (!length(code)) {
+    return(data)
+  }
 
   data2 %<>% transform(transform)
 

@@ -22,12 +22,13 @@
 #' rescale_f(datasets::mtcars,
 #'   transform = list(log = "mpg"),
 #'   subtract = list(mean = c("mpg", "disp"), min = "gear"),
-#'   divide_by = list(sd = c("mpg", "hp")))
+#'   divide_by = list(sd = c("mpg", "hp"))
+#' )
 rescale_f <- function(data,
                       data2 = data,
                       transform = list(),
-                     subtract = list(),
-                     divide_by = list()) {
+                      subtract = list(),
+                      divide_by = list()) {
   chk::chk_data(data)
   chk::chk_data(data2)
   check_uniquely_named_list(transform)
@@ -43,9 +44,9 @@ rescale_f <- function(data,
   if (anyDuplicated(divide_by_cols)) error("elements in divide_by must be unique")
 
   chk_null_or_named <- function(data, x) {
-  if(!is.null(x)) {
-    check_names(data, x)
-   }
+    if (!is.null(x)) {
+      check_names(data, x)
+    }
   }
 
   chk_null_or_named(data, transform_cols)

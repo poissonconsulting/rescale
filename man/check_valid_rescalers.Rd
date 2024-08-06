@@ -13,7 +13,7 @@ check_valid_rescalers(x, x_name = substitute(x))
 }
 \value{
 An informative error if the check failed otherwise the original
-  object.
+object.
 }
 \description{
 Check Valid Rescalers
