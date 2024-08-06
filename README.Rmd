@@ -4,13 +4,16 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, echo = FALSE}
+```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "tools/README-"
+  fig.path = "man/figures/README-",
+  out.width = "100%"
 )
 ```
+
+# rescale
 
 <!-- badges: start -->
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
@@ -18,8 +21,6 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/poissonconsulting/rescale/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/rescale?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 <!-- badges: end -->
-
-# rescale
 
 ## Introduction
 

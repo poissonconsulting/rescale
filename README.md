@@ -1,5 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# rescale
+
 <!-- badges: start -->
 
 [![Lifecycle:
@@ -11,8 +14,6 @@ coverage](https://codecov.io/gh/poissonconsulting/rescale/branch/master/graph/ba
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 <!-- badges: end -->
-
-# rescale
 
 ## Introduction
 
@@ -64,9 +65,10 @@ gp <- ggplot(data = prediction, aes(x = disp, y = fit)) +
 gp
 ```
 
-![](tools/README-unnamed-chunk-2-1.png)<!-- -->
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
 ``` r
+
 ## scale data
 scaled_data <- rescale(new_data, datasets::mtcars, scale = c("wt", "hp", "disp"))
                        
@@ -76,7 +78,7 @@ prediction <- predict(model, newdata = scaled_data, interval = "confidence") %>%
 gp %+% prediction
 ```
 
-![](tools/README-unnamed-chunk-2-2.png)<!-- -->
+<img src="man/figures/README-unnamed-chunk-2-2.png" width="100%" />
 
 ## Installation
 
