@@ -41,7 +41,8 @@ then dividing by values.
 rescale_f(datasets::mtcars,
   transform = list(log = "mpg"),
   subtract = list(mean = c("mpg", "disp"), min = "gear"),
-  divide_by = list(sd = c("mpg", "hp")))
+  divide_by = list(sd = c("mpg", "hp"))
+)
 }
 \seealso{
 \code{\link{rescale}}

@@ -47,7 +47,7 @@ mtcars <- datasets::mtcars
 
 data <- rescale(mtcars, scale = c("wt", "hp", "disp"))
 
-model <- lm(mpg ~ wt + hp + poly(disp,2), data = data)
+model <- lm(mpg ~ wt + hp + poly(disp, 2), data = data)
 
 ## generate new data for plotting change in mpg with disp
 new_data <- newdata::new_data(mtcars, "disp")
@@ -55,8 +55,8 @@ new_data <- newdata::new_data(mtcars, "disp")
 # without rescaling data
 prediction <- predict(model, newdata = new_data, interval = "confidence") %>% cbind(new_data)
 
-gp <- ggplot(data = prediction, aes(x = disp, y = fit)) + 
-  geom_point(data = mtcars, aes(y = mpg)) + 
+gp <- ggplot(data = prediction, aes(x = disp, y = fit)) +
+  geom_point(data = mtcars, aes(y = mpg)) +
   geom_line() +
   geom_line(aes(y = lwr), linetype = "dotted") +
   geom_line(aes(y = upr), linetype = "dotted") +
@@ -71,8 +71,8 @@ gp
 
 ## scale data
 scaled_data <- rescale(new_data, datasets::mtcars, scale = c("wt", "hp", "disp"))
-                       
-prediction <- predict(model, newdata = scaled_data, interval = "confidence") %>% 
+
+prediction <- predict(model, newdata = scaled_data, interval = "confidence") %>%
   cbind(new_data)
 
 gp %+% prediction
