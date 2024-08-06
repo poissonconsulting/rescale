@@ -6,13 +6,14 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![R build
-status](https://github.com/poissonconsulting/rescale/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/rescale/actions)
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/poissonconsulting/rescale/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/poissonconsulting/rescale/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/poissonconsulting/rescale/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/rescale)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/rescale)](https://cran.r-project.org/package=rescale)
 <!-- badges: end -->
 
 ## Introduction
