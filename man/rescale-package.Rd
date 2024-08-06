@@ -5,6 +5,8 @@
 \alias{rescale-package}
 \title{rescale: Rescales Data Based on Other Data}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 Rescales columns in a data frame based on the columns in a second data frame. For example a column can be rescaled by subtracting the mean and dividing by the standard deviation. The user can pass the names of functions which calculate the value to subtract and/or the value to divide by. The package was developed for making predictions based on models with rescaled variables. For the predictions to be valid the new data frame must have its predictor variables rescaled based on the original data.
 }
 \seealso{

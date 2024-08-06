@@ -20,7 +20,8 @@ Imports:
     magrittr,
     stats,
     purrr,
-    lifecycle
+    lifecycle,
+    rlang
 Suggests:
     datasets,
     newdata,
