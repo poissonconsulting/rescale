@@ -1,9 +1,15 @@
 Package: rescale
 Title: Rescales Data Based on Other Data
 Version: 0.0.0.9006
-Date: 2018-10-05
-Authors@R: 
-    person("Joe", "Thorley", , "joe@poissonconsulting.ca", role = c("aut", "cre"))
+Authors@R: c(
+    person("Joe", "Thorley", , "joe@poissonconsulting.ca", role = c("cre", "aut"),
+           comment = c(ORCID = "0000-0002-7683-4592")),
+    person("Ayla", "Pearson", , "ayla@poissonconsulting.ca", role = "ctb",
+           comment = c(ORCID = "0000-0001-7388-1222")),
+    person("Nadine", "Hussein", , "nadine@poissonconsulting.ca", role = "ctb",
+           comment = c(ORCID = "0000-0003-4470-8361")),
+    person("Poisson Consulting", role = c("fnd", "cph"))
+  )
 Description: Rescales columns in a data frame based on the columns in a
     second data frame. For example a column can be rescaled by subtracting
     the mean and dividing by the standard deviation. The user can pass the
