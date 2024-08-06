@@ -19,7 +19,8 @@ Imports:
     glue,
     magrittr,
     stats,
-    purrr
+    purrr,
+    lifecycle
 Suggests:
     datasets,
     newdata,

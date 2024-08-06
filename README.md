@@ -10,7 +10,7 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 [![R build
 status](https://github.com/poissonconsulting/rescale/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/rescale/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/poissonconsulting/rescale/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/rescale?branch=master)
+coverage](https://codecov.io/gh/poissonconsulting/rescale/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/rescale)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 <!-- badges: end -->
