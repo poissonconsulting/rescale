@@ -39,10 +39,6 @@ rescale_f <- function(data,
   subtract_cols <- unlist(subtract, recursive = FALSE)
   divide_by_cols <- unlist(divide_by, recursive = FALSE)
 
-  if (anyDuplicated(transform_cols)) error("elements in transform must be unique")
-  if (anyDuplicated(subtract_cols)) error("elements in subtract must be unique")
-  if (anyDuplicated(divide_by_cols)) error("elements in divide_by must be unique")
-
   chk_null_or_named <- function(data, x) {
     if (!is.null(x)) {
       check_names(data, x)

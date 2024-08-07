@@ -42,8 +42,6 @@ is_nlist <- function(x) {
   return(!any(vapply(x, is.list, TRUE)))
 }
 
-is.syntactic <- function(x) x == make.names(x)
-
 scale_col <- function(x, y) x / stats::sd(y, na.rm = TRUE)
 
 scale <- function(data, data2) purrr::map2(data, data2, scale_col)

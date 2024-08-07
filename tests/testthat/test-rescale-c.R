@@ -26,3 +26,9 @@ test_that("rescale_c works", {
   expect_identical(min(rescale_c(mtcars, colnames = "mpg=")$mpg), 1)
   expect_identical(rescale_c(mtcars, colnames = c("mpg*", "cyl*", "drat+")), rescale(mtcars, center = c("drat", "mpg"), scale = c("mpg", "cyl")))
 })
+
+test_that("rescale_c unique columns", {
+  mtcars <- datasets::mtcars
+  expect_error(rescale_c(mtcars, colnames = c("mpg", "mpg")), "must appear only once in colnames$")
+  expect_error(rescale_c(mtcars, colnames = c("mpg*", "mpg+")), "must appear only once in colnames$")
+})
