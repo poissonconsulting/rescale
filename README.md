@@ -42,7 +42,6 @@ values to subtract and/or divide by to be defined by functions.
 library(ggplot2)
 library(newdata)
 library(rescale)
-library(magrittr)
 
 mtcars <- datasets::mtcars
 
@@ -54,7 +53,7 @@ model <- lm(mpg ~ wt + hp + poly(disp, 2), data = data)
 new_data <- newdata::new_data(mtcars, "disp")
 
 # without rescaling data
-prediction <- predict(model, newdata = new_data, interval = "confidence") %>% cbind(new_data)
+prediction <- predict(model, newdata = new_data, interval = "confidence") |> cbind(new_data)
 
 gp <- ggplot(data = prediction, aes(x = disp, y = fit)) +
   geom_point(data = mtcars, aes(y = mpg)) +
@@ -73,7 +72,7 @@ gp
 ## scale data
 scaled_data <- rescale(new_data, datasets::mtcars, scale = c("wt", "hp", "disp"))
 
-prediction <- predict(model, newdata = scaled_data, interval = "confidence") %>%
+prediction <- predict(model, newdata = scaled_data, interval = "confidence") |>
   cbind(new_data)
 
 gp %+% prediction

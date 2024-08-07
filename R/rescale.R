@@ -28,10 +28,10 @@ rescale <- function(data,
   chk::check_names(data2, center)
   chk::check_names(data2, scale)
 
-  scale %<>% unique()
-  center %<>% c(scale) %>% unique() # scaled variables must be centred first.
+  scale <- scale |> unique()
+  center <- center |> c(scale) |> unique() # scaled variables must be centred first.
 
-  data[center] %<>% center(data2[center])
-  data[scale] %<>% scale(data2[scale])
+  data[center] <- data[center] |> center(data2[center])
+  data[scale] <- data[scale] |> scale(data2[scale])
   data
 }

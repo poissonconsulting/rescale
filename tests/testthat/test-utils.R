@@ -33,3 +33,8 @@ test_that("get_rescaler_transform", {
   expect_identical(get_rescaler_transform("log(mean)*"), "log")
   expect_identical(get_rescaler_transform("mean"), character(0))
 })
+
+test_that("is_nlist", {
+  expect_true(is_nlist(list(x = 1)))
+  expect_false(is_nlist(list(1)))
+})

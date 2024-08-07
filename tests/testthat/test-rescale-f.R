@@ -20,3 +20,10 @@ test_that("rescale_f works", {
   expect_identical(rescale_f(mtcars, subtract = list(mean = "mpg"), divide_by = list(sd = "mpg")), rescale(mtcars, scale = "mpg"))
   expect_identical(rescale_f(mtcars, subtract = list(mean = c("mpg", "cyl", "drat")), divide_by = list(sd = c("cyl", "mpg"))), rescale(mtcars, center = c("drat", "mpg"), scale = c("mpg", "cyl")))
 })
+
+test_that("rescale_f unique columns each function", {
+  mtcars <- datasets::mtcars
+  expect_error(rescale_f(mtcars, transform = list(mean = "mpg", mean = "mpg")), "must be unique\\.$")
+  expect_error(rescale_f(mtcars, subtract = list(mean = "mpg", mean = "mpg")), "must be unique\\.$")
+  expect_error(rescale_f(mtcars, divide_by = list(mean = "mpg", mean = "mpg")), "must be unique\\.$")
+})
