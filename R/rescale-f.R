@@ -24,11 +24,13 @@
 #'   subtract = list(mean = c("mpg", "disp"), min = "gear"),
 #'   divide_by = list(sd = c("mpg", "hp"))
 #' )
-rescale_f <- function(data,
-                      data2 = data,
-                      transform = list(),
-                      subtract = list(),
-                      divide_by = list()) {
+rescale_f <- function(
+  data,
+  data2 = data,
+  transform = list(),
+  subtract = list(),
+  divide_by = list()
+) {
   chk::chk_data(data)
   chk::chk_data(data2)
   check_uniquely_named_list(transform)

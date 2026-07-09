@@ -16,9 +16,7 @@
 #' @export
 #' @seealso \code{\link{rescale}}
 # rescale_c(datasets::mtcars, c("log(mpg)*", "disp+", "gear-", "hp/"))
-rescale_c <- function(data,
-                      data2 = data,
-                      colnames = character(0)) {
+rescale_c <- function(data, data2 = data, colnames = character(0)) {
   chk::chk_data(data)
   chk::chk_data(data2)
   chk::chk_vector(colnames)
@@ -33,7 +31,9 @@ rescale_c <- function(data,
   transform <- lapply(colnames, get_rescaler_transform)
   code <- lapply(colnames, get_rescaler_code)
 
-  if (anyDuplicated(names)) error("columns must appear only once in colnames")
+  if (anyDuplicated(names)) {
+    error("columns must appear only once in colnames")
+  }
 
   names(transform) <- names
   names(code) <- names

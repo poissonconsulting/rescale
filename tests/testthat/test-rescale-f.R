@@ -11,19 +11,48 @@ test_that("rescale_f works", {
     rescale_f(mtcars, transform = list(sqrt = c("mpg", "cyl")))$cyl,
     sqrt(mtcars$cyl)
   )
-  expect_identical(rescale_f(mtcars, transform = list(log = "mpg"))[-1], mtcars[-1])
-  expect_identical(rescale_f(mtcars, subtract = list(mean = "mpg")), rescale(mtcars, center = "mpg"))
+  expect_identical(
+    rescale_f(mtcars, transform = list(log = "mpg"))[-1],
+    mtcars[-1]
+  )
+  expect_identical(
+    rescale_f(mtcars, subtract = list(mean = "mpg")),
+    rescale(mtcars, center = "mpg")
+  )
   expect_identical(
     rescale_f(mtcars, mtcars2, subtract = list(mean = "mpg"))$mpg,
     mtcars$mpg - mean(mtcars2$mpg)
   )
-  expect_identical(rescale_f(mtcars, subtract = list(mean = "mpg"), divide_by = list(sd = "mpg")), rescale(mtcars, scale = "mpg"))
-  expect_identical(rescale_f(mtcars, subtract = list(mean = c("mpg", "cyl", "drat")), divide_by = list(sd = c("cyl", "mpg"))), rescale(mtcars, center = c("drat", "mpg"), scale = c("mpg", "cyl")))
+  expect_identical(
+    rescale_f(
+      mtcars,
+      subtract = list(mean = "mpg"),
+      divide_by = list(sd = "mpg")
+    ),
+    rescale(mtcars, scale = "mpg")
+  )
+  expect_identical(
+    rescale_f(
+      mtcars,
+      subtract = list(mean = c("mpg", "cyl", "drat")),
+      divide_by = list(sd = c("cyl", "mpg"))
+    ),
+    rescale(mtcars, center = c("drat", "mpg"), scale = c("mpg", "cyl"))
+  )
 })
 
 test_that("rescale_f unique columns each function", {
   mtcars <- datasets::mtcars
-  expect_error(rescale_f(mtcars, transform = list(mean = "mpg", mean = "mpg")), "must be unique\\.$")
-  expect_error(rescale_f(mtcars, subtract = list(mean = "mpg", mean = "mpg")), "must be unique\\.$")
-  expect_error(rescale_f(mtcars, divide_by = list(mean = "mpg", mean = "mpg")), "must be unique\\.$")
+  expect_error(
+    rescale_f(mtcars, transform = list(mean = "mpg", mean = "mpg")),
+    "must be unique\\.$"
+  )
+  expect_error(
+    rescale_f(mtcars, subtract = list(mean = "mpg", mean = "mpg")),
+    "must be unique\\.$"
+  )
+  expect_error(
+    rescale_f(mtcars, divide_by = list(mean = "mpg", mean = "mpg")),
+    "must be unique\\.$"
+  )
 })
