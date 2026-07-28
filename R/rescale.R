@@ -15,10 +15,12 @@
 #' @seealso \code{\link[base]{scale}}, \code{\link{rescale_f}} and \code{\link{rescale_c}}
 #' @examples
 #' rescale(datasets::mtcars, scale = "mpg")
-rescale <- function(data,
-                    data2 = data,
-                    center = character(0),
-                    scale = character(0)) {
+rescale <- function(
+  data,
+  data2 = data,
+  center = character(0),
+  scale = character(0)
+) {
   chk::chk_data(data)
   chk::chk_data(data2)
   chk::chk_vector(center, "")

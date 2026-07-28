@@ -83,7 +83,8 @@ transform_cols <- function(x, fun_name) {
 
 transform <- function(data, transform) {
   for (i in seq_along(transform)) {
-    data[] <- data[] |> purrr::map_at(transform[[i]], transform_cols, names(transform[i]))
+    data[] <- data[] |>
+      purrr::map_at(transform[[i]], transform_cols, names(transform[i]))
   }
   data
 }
@@ -167,10 +168,11 @@ rescale_fun_cols <- function(x, y, fun_name) {
 rescale_fun <- function(data, data2, fun_list) {
   for (i in seq_along(fun_list)) {
     for (j in seq_along(fun_list[[i]])) {
-      data[[fun_list[[i]][j]]] <- data[[fun_list[[i]][j]]] |> rescale_fun_cols(
-        data2[[fun_list[[i]][j]]],
-        names(fun_list[i])
-      )
+      data[[fun_list[[i]][j]]] <- data[[fun_list[[i]][j]]] |>
+        rescale_fun_cols(
+          data2[[fun_list[[i]][j]]],
+          names(fun_list[i])
+        )
     }
   }
   data
