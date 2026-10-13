@@ -23,13 +23,13 @@ Source:
 [`DESCRIPTION`](https://github.com/poissonconsulting/rescale/blob/main/DESCRIPTION)
 
 Thorley J (2026). *rescale: Rescales Data Based on Other Data*. R
-package version 0.0.0.9007,
+package version 0.0.0.9008,
 <https://github.com/poissonconsulting/rescale>.
 
     @Manual{,
       title = {rescale: Rescales Data Based on Other Data},
       author = {Joe Thorley},
       year = {2026},
-      note = {R package version 0.0.0.9007},
+      note = {R package version 0.0.0.9008},
       url = {https://github.com/poissonconsulting/rescale},
     }
