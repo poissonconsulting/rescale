@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# rescale 0.0.0.9009 (2026-11-10)
+
+- Same as previous version.
+
+
 # rescale 0.0.0.9008 (2026-10-13)
 
 - Same as previous version.
@@ -9,4 +14,3 @@
 
 * Add fledge-bump workflow
 * Add fledge-tag-on-merge workflow
-
